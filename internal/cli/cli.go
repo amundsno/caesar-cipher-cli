@@ -34,9 +34,9 @@ func ParseArgs() (Config, error) {
 	}
 
 	key, err := strconv.Atoi(flag.Arg(0))
-	if err != nil || key < 0 || key > 29 {
+	if err != nil || key < 1 || key > 28 {
 		return config, fmt.Errorf(
-			"expected argument (key) to be an integer in range 0-29, got %s", flag.Arg(0))
+			"expected argument (key) to be an integer in range 1-28, got %s", flag.Arg(0))
 	}
 	config.Key = key
 
@@ -49,7 +49,7 @@ func init() {
 		flag.VisitAll(func(f *flag.Flag) {
 			fmt.Fprintf(os.Stderr, "  -%s: %s\n", f.Name, f.Usage)
 		})
-		fmt.Fprintln(os.Stderr, "\nArguments:\n  key: integer in range 0 - 29")
+		fmt.Fprintln(os.Stderr, "\nArguments:\n  key: integer in range 1-28")
 
 		fmt.Fprintln(os.Stderr, "\nExamples:")
 		examples := []string{

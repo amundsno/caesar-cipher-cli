@@ -42,7 +42,7 @@ func TestEncryptDecrypt(t *testing.T) {
 		key         int
 	}{
 		{name: "ciphering preserves capitalization", input: "HeLlO, wOrlD!", key: 3},
-		{name: "cipher by key > 29 supported", input: "hello, world!", key: 300},
+		{name: "cipher by key > 28 supported", input: "hello, world!", key: 300},
 	}
 	for _, test := range tests {
 		t.Run(test.name, func(t *testing.T) {
